@@ -7,6 +7,9 @@ This application is designed simple with eye catchy design for best user experie
 
 Title - Schedule Planner - For Students & Professionals 
 
+Short Description - Plan your all schedules and to do with this fully loaded tool with reminders
+
+
 Description - Schedule Planner is a tool for you to plan your every
 tasks and todo works with all the amazing loaded features which will 
 help you to make your efficient schedules to work efficiently. 
