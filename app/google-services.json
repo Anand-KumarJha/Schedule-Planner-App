@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "389455385479",
+    "project_id": "schedule-planner-92d96",
+    "storage_bucket": "schedule-planner-92d96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389455385479:android:d4e37bc5139eefafd6f922",
+        "android_client_info": {
+          "package_name": "com.futuredeveloper.scheduleplanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389455385479-j6h0u5n2d8p8mfnhn0k2m2fqapcnj49m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcFyH_CX6zueMpmuGoPyqcbG48Jpn7oSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389455385479-j6h0u5n2d8p8mfnhn0k2m2fqapcnj49m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

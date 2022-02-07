@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/groupTop"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/actionbar_home"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/notes"
+            android:icon="@drawable/actionbar_notes"
+            android:title="@string/notes"/>
+
+        <item
+            android:id="@+id/past_schedules"
+            android:icon="@drawable/actionbar_past_schedules"
+            android:title="@string/past_schedules"/>
+
+        <item
+            android:id="@+id/how_to_use"
+            android:icon="@drawable/actionbar_how_to_use"
+            android:title="@string/how_to_use"/>
+
+    </group>
+
+    <group
+        android:id="@+id/group_middle"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/shareApp"
+            android:icon="@drawable/actionbar_share_app"
+            android:title="@string/share_app"/>
+
+        <item
+            android:id="@+id/giveRating"
+            android:icon="@drawable/actionbar_give_rating"
+            android:title="@string/give_rating_to_support"/>
+    </group>
+
+    <group
+        android:id="@+id/group_bottom"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_about_app"
+            android:title="@string/about_app"/>
+    </group>
+
+
+
+</menu>

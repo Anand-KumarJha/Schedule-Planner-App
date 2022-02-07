@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">389455385479-j6h0u5n2d8p8mfnhn0k2m2fqapcnj49m.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">389455385479</string>
+    <string name="google_api_key" translatable="false">AIzaSyAcFyH_CX6zueMpmuGoPyqcbG48Jpn7oSc</string>
+    <string name="google_app_id" translatable="false">1:389455385479:android:d4e37bc5139eefafd6f922</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAcFyH_CX6zueMpmuGoPyqcbG48Jpn7oSc</string>
+    <string name="google_storage_bucket" translatable="false">schedule-planner-92d96.appspot.com</string>
+    <string name="project_id" translatable="false">schedule-planner-92d96</string>
+</resources>

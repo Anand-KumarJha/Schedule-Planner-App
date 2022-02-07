@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\notes_single_row.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\notes_single_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\main_schedule_single_row.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\main_schedule_single_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_create_task.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\activity_create_task.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\repeat_task_single_row.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\repeat_task_single_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_notes.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\fragment_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_splash_screen.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\activity_splash_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_create_plan.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\activity_create_plan.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\create_task_single_row.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\create_task_single_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_how_to_use.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\activity_how_to_use.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_notes.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\activity_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\main_schedule_row.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\main_schedule_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_about.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\fragment_about.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\drawer_header.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\drawer_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_past_schedule.xml",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\fragment_past_schedule.xml"
+    }
+]
