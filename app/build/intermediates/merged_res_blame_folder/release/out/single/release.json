@@ -16,32 +16,32 @@
         "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable\\main_shape.xml"
     },
     {
-        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\drawable-xhdpi_actionbar_give_rating.png.flat",
-        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable-xhdpi\\actionbar_give_rating.png"
-    },
-    {
-        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\drawable-hdpi_actionbar_give_rating.png.flat",
-        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable-hdpi\\actionbar_give_rating.png"
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\mipmap-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_background.png"
     },
     {
         "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\drawable-xxhdpi_actionbar_notes.png.flat",
         "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable-xxhdpi\\actionbar_notes.png"
     },
     {
-        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\mipmap-hdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\drawable-hdpi_actionbar_give_rating.png.flat",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable-hdpi\\actionbar_give_rating.png"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\drawable-xhdpi_actionbar_give_rating.png.flat",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable-xhdpi\\actionbar_give_rating.png"
     },
     {
         "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\drawable_circle.xml.flat",
         "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable\\circle.xml"
     },
     {
-        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\layout_activity_splash_screen.xml.flat",
-        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\activity_splash_screen.xml"
-    },
-    {
         "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\layout_activity_splash_screen.xml.flat",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\activity_splash_screen.xml"
     },
     {
         "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\drawable-anydpi_actionbar_create_task.xml.flat",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable-xhdpi\\actionbar_past_schedules.png"
     },
     {
-        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\layout_notes_single_row.xml.flat",
-        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\notes_single_row.xml"
-    },
-    {
         "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_actionbar_save_task1.png.flat",
         "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable-mdpi\\actionbar_save_task1.png"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\layout_notes_single_row.xml.flat",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\layout\\notes_single_row.xml"
     },
     {
         "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\release\\layout_fragment_past_schedule.xml.flat",

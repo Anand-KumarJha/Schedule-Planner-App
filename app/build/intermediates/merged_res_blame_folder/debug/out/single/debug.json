@@ -116,12 +116,12 @@
         "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable\\small_logo.png"
     },
     {
-        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_actionbar_give_rating.png.flat",
         "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\drawable-mdpi\\actionbar_give_rating.png"
+    },
+    {
+        "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi_actionbar_give_rating.xml.flat",

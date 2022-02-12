@@ -50,14 +50,6 @@ class AlarmReceiver: BroadcastReceiver() {
 
         val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
 
-        val powerManager = context.getSystemService(POWER_SERVICE) as PowerManager
-        val wakeLock = powerManager.newWakeLock(
-            PowerManager.FULL_WAKE_LOCK or
-                    PowerManager.ACQUIRE_CAUSES_WAKEUP or
-                    PowerManager.ON_AFTER_RELEASE, "appname::WakeLock"
-        )
-        wakeLock.acquire(1 * 60 * 1000L)
-
         val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         if (Build.VERSION.SDK_INT >= 26) {
             vibrator.vibrate(VibrationEffect.createOneShot(2000, VibrationEffect.DEFAULT_AMPLITUDE))

@@ -1,4 +1,4 @@
-#Mon Feb 07 18:19:04 IST 2022
+#Sat Feb 12 17:53:27 IST 2022
 base.2=C\:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes3.dex
 path.2=classes3.dex
 base.1=C\:\\Users\\anand\\AndroidStudioProjects\\SchedulePlanner - Main version\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes2.dex
