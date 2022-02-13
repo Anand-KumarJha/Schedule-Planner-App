@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-55:12
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-57:12
 MERGED from [com.google.android.play:core-ktx:1.8.1] C:\Users\anand\.gradle\caches\transforms-3\a35bf7fcba1e4ca19cbf40a6613aaedd\transformed\jetified-core-ktx-1.8.1\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.room:room-ktx:2.4.1] C:\Users\anand\.gradle\caches\transforms-3\cb110850190b67491b724f4396e6a0fb\transformed\jetified-room-ktx-2.4.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity-ktx:1.4.0] C:\Users\anand\.gradle\caches\transforms-3\dbd17787b638fb1c2443fae6fd059119\transformed\jetified-activity-ktx-1.4.0\AndroidManifest.xml:17:1-24:12
@@ -109,22 +109,22 @@ MERGED from [androidx.sqlite:sqlite-framework:2.2.0] C:\Users\anand\.gradle\cach
 MERGED from [androidx.sqlite:sqlite:2.2.0] C:\Users\anand\.gradle\caches\transforms-3\dcf2db4cd0785e8046095a87fd4cc7ea\transformed\sqlite-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\anand\.gradle\caches\transforms-3\8dc44fc0c8cbf7c09eaee8101a3918ab\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\anand\.gradle\caches\transforms-3\6ea72918f7c1139f53623347a6d7ad9c\transformed\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
-INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-57:12
 	package
 		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:4:5-50
 		INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-55:12
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-57:12
 		INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-55:12
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:1-57:12
 		INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:2:11-69
@@ -158,8 +158,26 @@ uses-permission#android.permission.VIBRATE
 ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:8:5-66
 	android:name
 		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:8:22-63
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:9:5-88
+REJECTED from [com.google.android.gms:play-services-measurement:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\9843bbc72b34cdfaea8b54e43ac93a7d\transformed\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:25:5-68
+REJECTED from [com.google.android.gms:play-services-measurement-api:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\448e495429d6a7e78aad8bab40b28f70\transformed\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:24:5-68
+REJECTED from [com.google.android.gms:play-services-measurement-impl:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\fcaae10ee59d25e73563d37e033ed5a6\transformed\jetified-play-services-measurement-impl-20.0.2\AndroidManifest.xml:25:5-68
+REJECTED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\5bff1ecb36faf8ebc50dd3f9857f19c5\transformed\jetified-play-services-measurement-sdk-api-20.0.2\AndroidManifest.xml:25:5-68
+REJECTED from [androidx.work:work-runtime:2.7.0] C:\Users\anand\.gradle\caches\transforms-3\599f95a1241f8db459b0949a9a791f3b\transformed\work-runtime-2.7.0\AndroidManifest.xml:25:5-68
+	tools:node
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:9:66-86
+	android:name
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:9:22-65
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:10:5-101
+REJECTED from [androidx.work:work-runtime:2.7.0] C:\Users\anand\.gradle\caches\transforms-3\599f95a1241f8db459b0949a9a791f3b\transformed\work-runtime-2.7.0\AndroidManifest.xml:27:5-81
+	tools:node
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:10:79-99
+	android:name
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:10:22-78
 application
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:10:5-53:19
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:12:5-55:19
 MERGED from [com.google.android.play:core-ktx:1.8.1] C:\Users\anand\.gradle\caches\transforms-3\a35bf7fcba1e4ca19cbf40a6613aaedd\transformed\jetified-core-ktx-1.8.1\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.play:core-ktx:1.8.1] C:\Users\anand\.gradle\caches\transforms-3\a35bf7fcba1e4ca19cbf40a6613aaedd\transformed\jetified-core-ktx-1.8.1\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.material:material:1.5.0] C:\Users\anand\.gradle\caches\transforms-3\c97cb3519010326d3fea32e6c9fcbf19\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
@@ -245,81 +263,81 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\anand\.gradle\cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] C:\Users\anand\.gradle\caches\transforms-3\4a3e71d6c63eb808f1d93bf547ec2e89\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:15:9-35
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:17:9-35
 	android:label
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:13:9-41
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:15:9-41
 	android:roundIcon
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:14:9-54
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:16:9-54
 	tools:targetApi
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:17:9-28
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:19:9-28
 	android:icon
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:12:9-43
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:16:9-53
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:18:9-53
 activity#com.futuredeveloper.scheduleplanner.activity.HowToUse
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:19:9-21:40
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:21:9-23:40
 	android:exported
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:21:13-37
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:23:13-37
 	android:name
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:20:13-46
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:22:13-46
 meta-data#com.google.android.gms.ads.APPLICATION_ID
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:22:9-24:70
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:24:9-26:70
 	android:value
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:24:13-67
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:26:13-67
 	android:name
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:23:13-69
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:25:13-69
 activity#com.futuredeveloper.scheduleplanner.activity.NotesActivity
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:25:9-27:40
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:27:9-29:40
 	android:exported
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:27:13-37
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:29:13-37
 	android:name
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:26:13-51
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:28:13-51
 activity#com.futuredeveloper.scheduleplanner.activity.CreateTaskActivity
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:28:9-30:40
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:30:9-32:40
 	android:exported
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:30:13-37
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:32:13-37
 	android:name
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:29:13-56
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:31:13-56
 activity#com.futuredeveloper.scheduleplanner.activity.CreatePlanActivity
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:31:9-34:57
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:33:9-36:57
 	android:windowSoftInputMode
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:34:13-54
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:36:13-54
 	android:exported
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:33:13-37
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:35:13-37
 	android:name
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:32:13-56
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:34:13-56
 activity#com.futuredeveloper.scheduleplanner.activity.MainActivity
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:35:9-37:40
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:37:9-39:40
 	android:exported
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:37:13-37
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:39:13-37
 	android:name
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:36:13-50
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:38:13-50
 activity#com.futuredeveloper.scheduleplanner.activity.SplashScreen
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:38:9-46:20
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:40:9-48:20
 	android:exported
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:40:13-36
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:42:13-36
 	android:name
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:39:13-50
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:41:13-50
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:41:13-45:29
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:43:13-47:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:42:17-69
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:44:17-69
 	android:name
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:42:25-66
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:44:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:44:17-77
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:46:17-77
 	android:name
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:44:27-74
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:46:27-74
 receiver#com.futuredeveloper.scheduleplanner.classes.AlarmReceiver
-ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:48:9-52:20
+ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:50:9-54:20
 	android:enabled
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:50:13-35
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:52:13-35
 	android:exported
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:51:13-36
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:53:13-36
 	android:name
-		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:49:13-50
+		ADDED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml:51:13-50
 uses-sdk
 INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\anand\AndroidStudioProjects\SchedulePlanner - Main version\app\src\main\AndroidManifest.xml
@@ -692,18 +710,6 @@ ADDED from [com.google.android.gms:play-services-auth:20.1.0] C:\Users\anand\.gr
 		ADDED from [com.google.android.gms:play-services-auth:20.1.0] C:\Users\anand\.gradle\caches\transforms-3\c1cbbeaa099c8ed0c6d5aab0917d5949\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:36:13-107
 	android:name
 		ADDED from [com.google.android.gms:play-services-auth:20.1.0] C:\Users\anand\.gradle\caches\transforms-3\c1cbbeaa099c8ed0c6d5aab0917d5949\transformed\jetified-play-services-auth-20.1.0\AndroidManifest.xml:34:13-89
-uses-permission#android.permission.WAKE_LOCK
-ADDED from [com.google.android.gms:play-services-measurement:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\9843bbc72b34cdfaea8b54e43ac93a7d\transformed\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:25:5-68
-MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\448e495429d6a7e78aad8bab40b28f70\transformed\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:24:5-68
-MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\448e495429d6a7e78aad8bab40b28f70\transformed\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:24:5-68
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\fcaae10ee59d25e73563d37e033ed5a6\transformed\jetified-play-services-measurement-impl-20.0.2\AndroidManifest.xml:25:5-68
-MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\fcaae10ee59d25e73563d37e033ed5a6\transformed\jetified-play-services-measurement-impl-20.0.2\AndroidManifest.xml:25:5-68
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\5bff1ecb36faf8ebc50dd3f9857f19c5\transformed\jetified-play-services-measurement-sdk-api-20.0.2\AndroidManifest.xml:25:5-68
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\5bff1ecb36faf8ebc50dd3f9857f19c5\transformed\jetified-play-services-measurement-sdk-api-20.0.2\AndroidManifest.xml:25:5-68
-MERGED from [androidx.work:work-runtime:2.7.0] C:\Users\anand\.gradle\caches\transforms-3\599f95a1241f8db459b0949a9a791f3b\transformed\work-runtime-2.7.0\AndroidManifest.xml:25:5-68
-MERGED from [androidx.work:work-runtime:2.7.0] C:\Users\anand\.gradle\caches\transforms-3\599f95a1241f8db459b0949a9a791f3b\transformed\work-runtime-2.7.0\AndroidManifest.xml:25:5-68
-	android:name
-		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\9843bbc72b34cdfaea8b54e43ac93a7d\transformed\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:25:22-65
 uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
 ADDED from [com.google.android.gms:play-services-measurement:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\9843bbc72b34cdfaea8b54e43ac93a7d\transformed\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:26:5-110
 MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] C:\Users\anand\.gradle\caches\transforms-3\fcaae10ee59d25e73563d37e033ed5a6\transformed\jetified-play-services-measurement-impl-20.0.2\AndroidManifest.xml:26:5-110
@@ -910,10 +916,6 @@ ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\anand\.gradle\caches\transfor
 		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\anand\.gradle\caches\transforms-3\f0336ba151d08666ab7f4884b8fce310\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
 	android:name
 		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\anand\.gradle\caches\transforms-3\f0336ba151d08666ab7f4884b8fce310\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
-uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from [androidx.work:work-runtime:2.7.0] C:\Users\anand\.gradle\caches\transforms-3\599f95a1241f8db459b0949a9a791f3b\transformed\work-runtime-2.7.0\AndroidManifest.xml:27:5-81
-	android:name
-		ADDED from [androidx.work:work-runtime:2.7.0] C:\Users\anand\.gradle\caches\transforms-3\599f95a1241f8db459b0949a9a791f3b\transformed\work-runtime-2.7.0\AndroidManifest.xml:27:22-78
 meta-data#androidx.work.WorkManagerInitializer
 ADDED from [androidx.work:work-runtime:2.7.0] C:\Users\anand\.gradle\caches\transforms-3\599f95a1241f8db459b0949a9a791f3b\transformed\work-runtime-2.7.0\AndroidManifest.xml:36:13-38:52
 	android:value

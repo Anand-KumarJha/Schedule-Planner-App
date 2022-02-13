@@ -79,7 +79,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/_1_schedule"
+                android:text="To Create Schedule:"
                 android:textColor="#FF5722"
                 android:textSize="12dp" />
 
@@ -93,7 +93,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:lineSpacingExtra="1dp"
-                android:text="@string/schedule_description"
+                android:text="@string/create_schedule_description"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
                 android:textSize="10dp" />
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_below="@id/description1"
-                android:text="@string/_2_tasks"
+                android:text="To Create Task: "
                 android:textSize="12dp"
                 android:textColor="#FF5722"/>
 
@@ -118,7 +118,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:lineSpacingExtra="1dp"
-                android:text="@string/tasks_description"
+                android:text="@string/create_task_description"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
                 android:textSize="10dp" />
@@ -129,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_below="@id/description2"
-                android:text="@string/_3_notes"
+                android:text="To Create Notes: "
                 android:textSize="12dp"
                 android:textColor="#FF5722"/>
 
@@ -143,7 +143,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:lineSpacingExtra="1dp"
-                android:text="@string/notes_description"
+                android:text="@string/create_notes_description"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
                 android:textSize="10dp" />
@@ -154,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_below="@id/description3"
-                android:text="@string/_4_repeating_tasks"
+                android:text="To Create Repeating Task:"
                 android:textSize="12dp"
                 android:textColor="#FF5722"/>
 
@@ -173,36 +173,21 @@
                 android:textColor="#FFFFFF"
                 android:textSize="10dp" />
 
-            <TextView
-                android:id="@+id/feature5"
+            <View
+                android:id="@+id/line"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_height="0.5dp"
                 android:layout_below="@id/description4"
-                android:text="@string/_5_others"
-                android:textSize="12dp"
-                android:textColor="#FF5722"/>
-
-            <TextView
-                android:id="@+id/description5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/feature5"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="0dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:lineSpacingExtra="1dp"
-                android:text="@string/other_description"
-                android:textAlignment="textStart"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp" />
+                android:background="#FFFFFF" />
 
             <TextView
                 android:id="@+id/text3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/description5"
+                android:layout_below="@id/line"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"

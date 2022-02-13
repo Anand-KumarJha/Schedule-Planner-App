@@ -2792,7 +2792,6 @@ id description1
 id description2
 id description3
 id description4
-id description5
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -2847,7 +2846,6 @@ id feature1
 id feature2
 id feature3
 id feature4
-id feature5
 id fill
 id fill_horizontal
 id fill_vertical
@@ -2912,6 +2910,7 @@ id left
 id leftToRight
 id legacy
 id light
+id line
 id line1
 id line3
 id linear
@@ -3508,6 +3507,9 @@ string common_signin_button_text_long
 string confirm
 string confirm_password
 string contact_support
+string create_notes_description
+string create_schedule_description
+string create_task_description
 string daily_notes
 string default_web_client_id
 string don_t_have_an_account_register_now
@@ -3626,7 +3628,6 @@ string mtrl_timepicker_confirm
 string name
 string no_notes_to_create_notes_go_to_create_schedule_page_and_click_notes_icon_on_top_right_corner
 string notes
-string notes_description
 string offline_notification_text
 string offline_notification_title
 string offline_opt_in_confirm
@@ -3636,7 +3637,6 @@ string offline_opt_in_message
 string offline_opt_in_title
 string open_drawer
 string or
-string other_description
 string otp
 string password
 string password_toggle_content_description
@@ -3645,7 +3645,6 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
-string privacy_policy_description
 string profile
 string project_id
 string register
@@ -3659,14 +3658,12 @@ string s5
 string s6
 string s7
 string save_task
-string schedule_description
 string schedule_planner
 string search_menu_title
 string settings
 string share_app
 string status_bar_notification_info_overflow
 string task_done
-string tasks_description
 string terms_condition_description
 string terms_conditions
 string verified_email

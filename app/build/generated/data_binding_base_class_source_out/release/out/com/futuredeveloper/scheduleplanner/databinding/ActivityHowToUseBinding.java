@@ -42,9 +42,6 @@ public final class ActivityHowToUseBinding implements ViewBinding {
   public final TextView description4;
 
   @NonNull
-  public final TextView description5;
-
-  @NonNull
   public final TextView faq1;
 
   @NonNull
@@ -66,7 +63,7 @@ public final class ActivityHowToUseBinding implements ViewBinding {
   public final TextView feature4;
 
   @NonNull
-  public final TextView feature5;
+  public final View line;
 
   @NonNull
   public final TextView text2;
@@ -83,11 +80,11 @@ public final class ActivityHowToUseBinding implements ViewBinding {
   private ActivityHowToUseBinding(@NonNull ScrollView rootView, @NonNull TextView answer1,
       @NonNull TextView answer2, @NonNull TextView answer3, @NonNull TextView description1,
       @NonNull TextView description2, @NonNull TextView description3,
-      @NonNull TextView description4, @NonNull TextView description5, @NonNull TextView faq1,
-      @NonNull TextView faq2, @NonNull TextView faq3, @NonNull TextView feature1,
-      @NonNull TextView feature2, @NonNull TextView feature3, @NonNull TextView feature4,
-      @NonNull TextView feature5, @NonNull TextView text2, @NonNull TextView text3,
-      @NonNull TextView textView1, @NonNull YouTubePlayerView youtubePlayerView) {
+      @NonNull TextView description4, @NonNull TextView faq1, @NonNull TextView faq2,
+      @NonNull TextView faq3, @NonNull TextView feature1, @NonNull TextView feature2,
+      @NonNull TextView feature3, @NonNull TextView feature4, @NonNull View line,
+      @NonNull TextView text2, @NonNull TextView text3, @NonNull TextView textView1,
+      @NonNull YouTubePlayerView youtubePlayerView) {
     this.rootView = rootView;
     this.answer1 = answer1;
     this.answer2 = answer2;
@@ -96,7 +93,6 @@ public final class ActivityHowToUseBinding implements ViewBinding {
     this.description2 = description2;
     this.description3 = description3;
     this.description4 = description4;
-    this.description5 = description5;
     this.faq1 = faq1;
     this.faq2 = faq2;
     this.faq3 = faq3;
@@ -104,7 +100,7 @@ public final class ActivityHowToUseBinding implements ViewBinding {
     this.feature2 = feature2;
     this.feature3 = feature3;
     this.feature4 = feature4;
-    this.feature5 = feature5;
+    this.line = line;
     this.text2 = text2;
     this.text3 = text3;
     this.textView1 = textView1;
@@ -180,12 +176,6 @@ public final class ActivityHowToUseBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.description5;
-      TextView description5 = ViewBindings.findChildViewById(rootView, id);
-      if (description5 == null) {
-        break missingId;
-      }
-
       id = R.id.faq1;
       TextView faq1 = ViewBindings.findChildViewById(rootView, id);
       if (faq1 == null) {
@@ -228,9 +218,9 @@ public final class ActivityHowToUseBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.feature5;
-      TextView feature5 = ViewBindings.findChildViewById(rootView, id);
-      if (feature5 == null) {
+      id = R.id.line;
+      View line = ViewBindings.findChildViewById(rootView, id);
+      if (line == null) {
         break missingId;
       }
 
@@ -259,9 +249,8 @@ public final class ActivityHowToUseBinding implements ViewBinding {
       }
 
       return new ActivityHowToUseBinding((ScrollView) rootView, answer1, answer2, answer3,
-          description1, description2, description3, description4, description5, faq1, faq2, faq3,
-          feature1, feature2, feature3, feature4, feature5, text2, text3, textView1,
-          youtubePlayerView);
+          description1, description2, description3, description4, faq1, faq2, faq3, feature1,
+          feature2, feature3, feature4, line, text2, text3, textView1, youtubePlayerView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
