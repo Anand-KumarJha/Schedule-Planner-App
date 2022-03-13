@@ -57,9 +57,14 @@ class HomeFragment : Fragment() {
     private lateinit var repeatRecycler: RecyclerView
     private lateinit var repeatLayoutManager: RecyclerView.LayoutManager
     private lateinit var repeatRecyclerAdapter: RepeatingTaskAdapter
+    private lateinit var quickRecycler: RecyclerView
+    private lateinit var quickLayoutManager: RecyclerView.LayoutManager
+    private lateinit var quickRecyclerAdapter: RepeatingTaskAdapter
 
     private lateinit var createIcon: FloatingActionButton
     private lateinit var repeatedTask: FloatingActionButton
+    private lateinit var quickTask: EditText
+    private lateinit var saveQuickTask: Button
     private lateinit var tasksDone: TextView
     private lateinit var tasksDonePercentage: TextView
     private lateinit var progressBar: ProgressBar
@@ -69,8 +74,10 @@ class HomeFragment : Fragment() {
     private lateinit var noSchedule: RelativeLayout
     private lateinit var nestedScrollView:NestedScrollView
     private lateinit var repeatText: TextView
+    private lateinit var quickText: TextView
     private lateinit var scheduleByDateText: TextView
     private lateinit var repeatTaskBox: FrameLayout
+    private lateinit var quickTaskBox: FrameLayout
     private var timeInMillis: Long = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,7 +102,11 @@ class HomeFragment : Fragment() {
         layoutManager2 = LinearLayoutManager(activity)
         repeatRecycler = view.findViewById(R.id.repeat_task_recycler)
         repeatLayoutManager = LinearLayoutManager(activity, HORIZONTAL, false)
+        quickLayoutManager = LinearLayoutManager(activity, HORIZONTAL, false)
+        quickRecycler = view.findViewById(R.id.quick_task_recycler)
 
+        quickTask = view.findViewById(R.id.quick_task)
+        saveQuickTask = view.findViewById(R.id.save_quick_task)
         tasksDone = view.findViewById(R.id.tasksDone)
         tasksDonePercentage = view.findViewById(R.id.tasksDonePercentage)
         progressBar = view.findViewById(R.id.progress_bar)
@@ -106,12 +117,52 @@ class HomeFragment : Fragment() {
         nestedScrollView = view.findViewById(R.id.nestedScrollView)
         repeatedTask = view.findViewById(R.id.repeat_icon)
         repeatText = view.findViewById(R.id.text3)
+        quickText = view.findViewById(R.id.quick_text)
         scheduleByDateText = view.findViewById(R.id.text4)
         repeatTaskBox = view.findViewById(R.id.repeat_task_box)
+        quickTaskBox = view.findViewById(R.id.quick_task_box)
 
         nestedScrollView.isFocusableInTouchMode = true
         nestedScrollView.fullScroll(View.FOCUS_UP)
         nestedScrollView.smoothScrollTo(0,0)
+
+        val quickTasksList = GetAllQuickTasks(activity as Context).execute().get()
+        if(quickTasksList.isEmpty()){
+            quickText.visibility = View.GONE
+            quickTaskBox.visibility = View.GONE
+        }
+        quickRecyclerAdapter = RepeatingTaskAdapter(activity as Context,quickTasksList)
+        quickRecycler.setHasFixedSize(true)
+        quickRecycler.adapter = quickRecyclerAdapter
+        quickRecycler.layoutManager = quickLayoutManager
+
+        saveQuickTask.setOnClickListener {
+            if (quickTask.text.isEmpty()) {
+                Toast.makeText(context, "Please Enter Any Title", Toast.LENGTH_SHORT).show()
+            }else {
+                val id = "Q,${System.currentTimeMillis()}"
+
+                val taskEntity = TaskEntity(
+                    id,
+                    "",
+                    "",
+                    quickTask.text.toString(),
+                    false
+                )
+
+                val async = CreateTaskActivity.DBAsyncTask1(
+                    context as Activity,
+                    taskEntity,
+                    2
+                ).execute()
+
+                val result = async.get()
+                if (result) {
+                    Toast.makeText(context, "Task Added", Toast.LENGTH_SHORT).show()
+                    (context as Activity).recreate()
+                }
+            }
+        }
 
         val repeatTasksList = GetAllRepeatTasks(activity as Context).execute().get()
         if(repeatTasksList.isEmpty()){
@@ -130,12 +181,10 @@ class HomeFragment : Fragment() {
                 scheduleList2.add(item)
             }
         }
-        if(repeatTasksList.isNotEmpty()){
-            noSchedule.visibility = View.GONE
-            if(scheduleList2.isEmpty()){
-                scheduleByDateText.visibility = View.GONE
-            }
-        }
+
+        scheduleByDateText.visibility = View.VISIBLE
+        noSchedule.visibility = View.VISIBLE
+
         if(scheduleList2.size > 0){
             noSchedule.visibility = View.GONE
         }
@@ -224,6 +273,7 @@ class HomeFragment : Fragment() {
                     var count = 0
                     for(j in (i.task_id)){
                         if(count >= 2){
+                            if(j == ',')break
                             sb1.append(j)
                         }
                         if(j == ',')count++
@@ -231,7 +281,7 @@ class HomeFragment : Fragment() {
                     val alarmNo = Integer.parseInt(sb1.toString())
 
                     println("Canceled alarm -------------------- $alarmNo")
-                    val alarmService= AlarmService(context as Activity,alarmNo,"")
+                    val alarmService= AlarmService(context as Activity,alarmNo,"",0)
                     cancelAlarm{alarmService.cancelAlarm(timeInMillis)}
                 }
 
@@ -418,6 +468,18 @@ class HomeFragment : Fragment() {
             val db = androidx.room.Room.databaseBuilder(context, com.futuredeveloper.scheduleplanner.database.TaskDatabase::class.java, "Task-Db").build()
 
             val taskEntity: List<TaskEntity> = db.taskDao().getAllRepeatTasks()
+            db.close()
+            return taskEntity
+        }
+    }
+
+    class GetAllQuickTasks(val context: Context) :
+        android.os.AsyncTask<Void, Void, List<TaskEntity>>() {
+
+        override fun doInBackground(vararg params: Void?): List<TaskEntity> {
+            val db = androidx.room.Room.databaseBuilder(context, com.futuredeveloper.scheduleplanner.database.TaskDatabase::class.java, "Task-Db").build()
+
+            val taskEntity: List<TaskEntity> = db.taskDao().getAllQuickTasks()
             db.close()
             return taskEntity
         }

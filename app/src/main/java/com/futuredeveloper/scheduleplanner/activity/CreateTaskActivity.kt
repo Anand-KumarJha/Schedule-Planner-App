@@ -1,5 +1,6 @@
 package com.futuredeveloper.scheduleplanner.activity
 
+import android.R.menu
 import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
 import android.content.ContentValues
@@ -12,11 +13,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.menu.MenuBuilder
 import androidx.room.Room
 import com.futuredeveloper.scheduleplanner.R
 import com.futuredeveloper.scheduleplanner.classes.AlarmService
@@ -55,6 +54,8 @@ class CreateTaskActivity : AppCompatActivity() {
     private lateinit var sharedPreference: SharedPreferences
     private var repeatBoolean = false
     private var mInterstitialAd: InterstitialAd? = null
+    private lateinit var alarm: ImageView
+    private var notify:Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,17 +84,26 @@ class CreateTaskActivity : AppCompatActivity() {
         saveTask = findViewById(R.id.save_icon)
         titleEditText = findViewById(R.id.title)
         descriptionEditText = findViewById(R.id.description)
+        alarm = findViewById(R.id.alarmIcon)
 
         repeatBoolean = intent.getBooleanExtra("repeat",false)
         if(repeatBoolean){
             taskText.text = "Daily Repeating Task "
         }
 
-        if(intent.getStringExtra("taskId") != null){
+        val taskId = intent.getStringExtra("taskId")
+        if(taskId != null){
             timeButton?.text = intent.getStringExtra("taskTime").toString()
-            timeButton?.isEnabled = false
             titleEditText.setText(intent.getStringExtra("taskTitle").toString())
             descriptionEditText.setText(intent.getStringExtra("taskDescription").toString())
+
+
+            notify = Integer.parseInt(taskId[taskId.length-1] +"")
+            when(notify){
+                0 -> alarm.setImageResource(R.drawable.actionbar_notification_off)
+                1 -> alarm.setImageResource(R.drawable.actionbar_notification)
+                2 -> alarm.setImageResource(R.drawable.actionbar_loud_notification)
+            }
         }
 
         date = intent.getStringExtra("date")
@@ -113,6 +123,47 @@ class CreateTaskActivity : AppCompatActivity() {
         println(calendar.timeInMillis)
         timeInMillis = calendar.timeInMillis
         //
+
+        alarm.setOnClickListener {
+            val popup = PopupMenu(this, it)
+            val inflater = popup.menuInflater
+            inflater.inflate(R.menu.alarm_menu, popup.menu)
+
+            popup.setOnMenuItemClickListener { item ->
+                when (item.itemId){
+                    R.id.off -> {
+                        notify = 0
+                        alarm.setImageResource(R.drawable.actionbar_notification_off)
+                        true
+                    }
+                    R.id.notification -> {
+                        notify = 1
+                        alarm.setImageResource(R.drawable.actionbar_notification)
+                        true
+                    }
+                    R.id.alarm -> {
+                        notify = 2
+                        alarm.setImageResource(R.drawable.actionbar_loud_notification)
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+
+            try {
+                val fieldMPopup = PopupMenu::class.java.getDeclaredField("mPopup")
+                fieldMPopup.isAccessible = true
+                val mPopup = fieldMPopup.get(popup)
+                mPopup.javaClass
+                    .getDeclaredMethod("setForceShowIcon", Boolean::class.java)
+                    .invoke(mPopup, true)
+            } catch (e: Exception){
+                Log.e("Main", "Error showing menu icons.", e)
+            } finally {
+                popup.show()
+            }
+        }
 
         saveTask.setOnClickListener {
             if (titleEditText.text.isEmpty() && descriptionEditText.text.isEmpty()) {
@@ -162,33 +213,36 @@ class CreateTaskActivity : AppCompatActivity() {
                     if (intent.getStringExtra("taskId") == null) {
                         sharedPreference.edit().putInt("alarmNo", alarmNo + 1).apply()
 
-                        if (title == "") {
-                            alarmService = AlarmService(this, alarmNo, "$time: $description")
-                        } else if (description == "") {
-                            alarmService = AlarmService(this, alarmNo, "$time: $title")
-                        } else if (title == "" && description == "") {
-                            alarmService = AlarmService(this, alarmNo, "$time ")
-                        } else {
-                            alarmService =
-                                AlarmService(this, alarmNo, "$time: $title- $description")
-                        }
+                        if(notify != 0) {
 
-                        if(timeInMillis < System.currentTimeMillis()){
-                            val timeInMillis2 = timeInMillis
-                            val cal = Calendar.getInstance().apply {
-                                if (timeInMillis2 != null) {
-                                    this.timeInMillis = timeInMillis2 + TimeUnit.DAYS.toMillis(1)
-                                }
+                            if (title == "") {
+                                alarmService = AlarmService(this, alarmNo, "$time: $description", notify)
+                            } else if (description == "") {
+                                alarmService = AlarmService(this, alarmNo, "$time: $title", notify)
+                            } else if (title == "" && description == "") {
+                                alarmService = AlarmService(this, alarmNo, "$time ", notify)
+                            } else {
+                                alarmService = AlarmService(this, alarmNo, "$time: $title- $description", notify)
                             }
-                            println(cal.timeInMillis)
-                            setAlarm { alarmService.setRepetitiveAlarm(cal.timeInMillis)}
-                        }else{
-                            setAlarm { alarmService.setRepetitiveAlarm(timeInMillis) }
+
+                            if (timeInMillis < System.currentTimeMillis()) {
+                                val timeInMillis2 = timeInMillis
+                                val cal = Calendar.getInstance().apply {
+                                    if (timeInMillis2 != null) {
+                                        this.timeInMillis =
+                                            timeInMillis2 + TimeUnit.DAYS.toMillis(1)
+                                    }
+                                }
+                                println(cal.timeInMillis)
+                                setAlarm { alarmService.setRepetitiveAlarm(cal.timeInMillis) }
+                            } else {
+                                setAlarm { alarmService.setRepetitiveAlarm(timeInMillis) }
+                            }
                         }
 
                         println("Created alarm ----------------$alarmNo")
 
-                        val taskId = "R,$timeInMillis,$alarmNo"
+                        val taskId = "R,$timeInMillis,$alarmNo,$notify"
 
                         val taskEntity = TaskEntity(
                             taskId,
@@ -214,8 +268,28 @@ class CreateTaskActivity : AppCompatActivity() {
                             onBackPressed()
                         }
                     } else {
+                        val id = intent.getStringExtra("taskId").toString()
                         val taskEntity = TaskEntity(
-                            intent.getStringExtra("taskId").toString(),
+                            id,
+                            time,
+                            title,
+                            description,
+                            false
+                        )
+                        val sb1 = StringBuilder()
+                        var count1 = 0
+                        for (i in intent.getStringExtra("taskId").toString()) {
+                            if (count1 >= 2) {
+                                if (i == ',') break
+                                sb1.append(i)
+                            }
+                            if (i == ',') count1++
+                        }
+                        val alarmNo1 = Integer.parseInt(sb1.toString())
+
+                        val taskId = "R,$timeInMillis,$alarmNo1,$notify"
+                        val taskEntityNew = TaskEntity(
+                            taskId,
                             time,
                             title,
                             description,
@@ -226,61 +300,36 @@ class CreateTaskActivity : AppCompatActivity() {
                         logout.setTitle("Update Task")
                         logout.setMessage("Task already exists! Do you want to update selected task?")
                         logout.setPositiveButton("Yes") { text, listener ->
-                            var count = 0
-                            var start = 0
-                            val sb = StringBuilder()
-                            for (i in intent.getStringExtra("taskId").toString()) {
-                                if (i == ',') {
-                                    count++
-                                }
-                                if (count >= 2) {
-                                    break
-                                }
-                                if (count == 1 && start > 0) {
-                                    sb.append(i)
-                                }
-                                if (count == 1) {
-                                    start++
-                                }
-                            }
-                            timeInMillis = (sb.toString()).toLong()
-
-                            val sb1 = StringBuilder()
-                            var count1 = 0
-                            for (i in intent.getStringExtra("taskId").toString()) {
-                                if (count1 >= 2) {
-                                    sb1.append(i)
-                                }
-                                if (i == ',') count1++
-                            }
-                            val alarmNo1 = Integer.parseInt(sb1.toString())
-
-                            var alarmService = AlarmService(this, alarmNo1, "")
+                            var alarmService = AlarmService(this, alarmNo1, "",notify)
                             println("Canceled alarm ----------------$alarmNo1")
                             cancelAlarm { alarmService.cancelRepeatAlarm(timeInMillis) }
 
-                            if (title == "") {
-                                alarmService = AlarmService(this, alarmNo1, "$time: $description")
-                            } else if (description == "") {
-                                alarmService = AlarmService(this, alarmNo1, "$time: $title")
-                            } else if (title == "" && description == "") {
-                                alarmService = AlarmService(this, alarmNo1, "$time ")
-                            } else {
-                                alarmService =
-                                    AlarmService(this, alarmNo1, "$time: $title- $description")
-                            }
-
-                            if(timeInMillis < System.currentTimeMillis()){
-                                val timeInMillis2 = timeInMillis
-                                val cal = Calendar.getInstance().apply {
-                                    if (timeInMillis2 != null) {
-                                        this.timeInMillis = timeInMillis2 + TimeUnit.DAYS.toMillis(1)
-                                    }
+                            if(notify != 0) {
+                                if (title == "") {
+                                    alarmService =
+                                        AlarmService(this, alarmNo1, "$time: $description",notify)
+                                } else if (description == "") {
+                                    alarmService = AlarmService(this, alarmNo1, "$time: $title",notify)
+                                } else if (title == "" && description == "") {
+                                    alarmService = AlarmService(this, alarmNo1, "$time ",notify)
+                                } else {
+                                    alarmService =
+                                        AlarmService(this, alarmNo1, "$time: $title- $description",notify)
                                 }
-                                println(cal.timeInMillis)
-                                setAlarm { alarmService.setRepetitiveAlarm(cal.timeInMillis)}
-                            }else{
-                                setAlarm { alarmService.setRepetitiveAlarm(timeInMillis) }
+
+                                if (timeInMillis < System.currentTimeMillis()) {
+                                    val timeInMillis2 = timeInMillis
+                                    val cal = Calendar.getInstance().apply {
+                                        if (timeInMillis2 != null) {
+                                            this.timeInMillis =
+                                                timeInMillis2 + TimeUnit.DAYS.toMillis(1)
+                                        }
+                                    }
+                                    println(cal.timeInMillis)
+                                    setAlarm { alarmService.setRepetitiveAlarm(cal.timeInMillis) }
+                                } else {
+                                    setAlarm { alarmService.setRepetitiveAlarm(timeInMillis) }
+                                }
                             }
 
                             println("Created alarm ----------------$alarmNo1")
@@ -292,7 +341,7 @@ class CreateTaskActivity : AppCompatActivity() {
                             ).execute()
                             val async = DBAsyncTask1(
                                 this,
-                                taskEntity,
+                                taskEntityNew,
                                 2
                             ).execute()
                             if (async.get()) {
@@ -313,22 +362,25 @@ class CreateTaskActivity : AppCompatActivity() {
                 } else if (intent.getStringExtra("taskId") == null) {
                     sharedPreference.edit().putInt("alarmNo", alarmNo + 1).apply()
 
-                    if (title == "") {
-                        alarmService = AlarmService(this, alarmNo, "$time: $description")
-                    } else if (description == "") {
-                        alarmService = AlarmService(this, alarmNo, "$time: $title")
-                    } else if (title == "" && description == "") {
-                        alarmService = AlarmService(this, alarmNo, "$time ")
-                    } else {
-                        alarmService = AlarmService(this, alarmNo, "$time: $title- $description")
-                    }
+                    if(notify != 0) {
+                        if (title == "") {
+                            alarmService =
+                                AlarmService(this, alarmNo, "$time: $description", notify)
+                        } else if (description == "") {
+                            alarmService = AlarmService(this, alarmNo, "$time: $title", notify)
+                        } else if (title == "" && description == "") {
+                            alarmService = AlarmService(this, alarmNo, "$time ", notify)
+                        } else {
+                            alarmService =
+                                AlarmService(this, alarmNo, "$time: $title- $description", notify)
+                        }
 
-                    if(timeInMillis > System.currentTimeMillis()){
-                        setAlarm { alarmService.setExactAlarm(timeInMillis) }
-                        println("Created alarm ----------------$alarmNo")
+                        if (timeInMillis > System.currentTimeMillis()) {
+                            setAlarm { alarmService.setExactAlarm(timeInMillis) }
+                            println("Created alarm ----------------$alarmNo")
+                        }
                     }
-
-                    val taskId = "$date,$timeInMillis,$alarmNo"
+                    val taskId = "$date,$timeInMillis,$alarmNo,$notify"
 
                     val taskEntity = TaskEntity(
                         taskId,
@@ -354,56 +406,51 @@ class CreateTaskActivity : AppCompatActivity() {
                         onBackPressed()
                     }
                 } else {
-                    var count = 0
-                    var start = 0
-                    val sb = StringBuilder()
-                    for (i in intent.getStringExtra("taskId").toString()) {
-                        if (i == ',') {
-                            count++
-                        }
-                        if (count >= 2) {
-                            break
-                        }
-                        if (count == 1 && start > 0) {
-                            sb.append(i)
-                        }
-                        if (count == 1) {
-                            start++
-                        }
-                    }
-                    timeInMillis = (sb.toString()).toLong()
-
                     val sb1 = StringBuilder()
                     var count1 = 0
                     for (i in intent.getStringExtra("taskId").toString()) {
                         if (count1 >= 2) {
+                            if (i == ',') break
                             sb1.append(i)
                         }
                         if (i == ',') count1++
                     }
                     val alarmNo1 = Integer.parseInt(sb1.toString())
 
-                    var alarmService = AlarmService(this, alarmNo1, "")
+                    var alarmService = AlarmService(this, alarmNo1, "",notify)
                     println("Canceled alarm ----------------$alarmNo1")
                     cancelAlarm { alarmService.cancelAlarm(timeInMillis) }
 
-                    if (title == "") {
-                        alarmService = AlarmService(this, alarmNo1, "$time: $description")
-                    } else if (description == "") {
-                        alarmService = AlarmService(this, alarmNo1, "$time: $title")
-                    } else if (title == "" && description == "") {
-                        alarmService = AlarmService(this, alarmNo1, "$time ")
-                    } else {
-                        alarmService = AlarmService(this, alarmNo1, "$time: $title- $description")
-                    }
+                    if(notify != 0) {
+                        if (title == "") {
+                            alarmService =
+                                AlarmService(this, alarmNo1, "$time: $description", notify)
+                        } else if (description == "") {
+                            alarmService = AlarmService(this, alarmNo1, "$time: $title", notify)
+                        } else if (title == "" && description == "") {
+                            alarmService = AlarmService(this, alarmNo1, "$time ", notify)
+                        } else {
+                            alarmService =
+                                AlarmService(this, alarmNo1, "$time: $title- $description", notify)
+                        }
 
-                    if(timeInMillis > System.currentTimeMillis()){
-                        setAlarm { alarmService.setExactAlarm(timeInMillis) }
-                        println("Created alarm ----------------$alarmNo")
+                        if (timeInMillis > System.currentTimeMillis()) {
+                            setAlarm { alarmService.setExactAlarm(timeInMillis) }
+                            println("Created alarm ----------------$alarmNo")
+                        }
                     }
-
+                    val id = intent.getStringExtra("taskId").toString()
                     val taskEntity = TaskEntity(
-                        intent.getStringExtra("taskId").toString(),
+                        id,
+                        time,
+                        title,
+                        description,
+                        false
+                    )
+
+                    val taskId = "$date,$timeInMillis,$alarmNo1,$notify"
+                    val taskEntityNew = TaskEntity(
+                        taskId,
                         time,
                         title,
                         description,
@@ -421,18 +468,10 @@ class CreateTaskActivity : AppCompatActivity() {
                         ).execute()
                         val async = DBAsyncTask1(
                             this,
-                            taskEntity,
+                            taskEntityNew,
                             2
                         ).execute()
                         if (async.get()) {
-                            Handler().postDelayed({
-                                if (mInterstitialAd != null) {
-                                    println("executed")
-                                    mInterstitialAd?.show(this)
-                                } else {
-                                    Log.d("TAG", "The interstitial ad wasn't ready yet.")
-                                }
-                            }, 3000)
                             Toast.makeText(
                                 this,
                                 "Task updated!",

@@ -4,6 +4,8 @@ package com.futuredeveloper.scheduleplanner.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -50,6 +52,18 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final ProgressBar progressBar;
 
   @NonNull
+  public final EditText quickTask;
+
+  @NonNull
+  public final FrameLayout quickTaskBox;
+
+  @NonNull
+  public final RecyclerView quickTaskRecycler;
+
+  @NonNull
+  public final TextView quickText;
+
+  @NonNull
   public final RecyclerView recyclerHome;
 
   @NonNull
@@ -63,6 +77,9 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @NonNull
   public final RecyclerView repeatTaskRecycler;
+
+  @NonNull
+  public final Button saveQuickTask;
 
   @NonNull
   public final TextView tasksDone;
@@ -89,12 +106,14 @@ public final class FragmentHomeBinding implements ViewBinding {
       @NonNull FloatingActionButton createIcon, @NonNull ImageView delete, @NonNull ImageView edit,
       @NonNull RelativeLayout editSchedule, @NonNull NestedScrollView nestedScrollView,
       @NonNull RelativeLayout noSchedule, @NonNull RelativeLayout progress,
-      @NonNull ProgressBar progressBar, @NonNull RecyclerView recyclerHome,
+      @NonNull ProgressBar progressBar, @NonNull EditText quickTask,
+      @NonNull FrameLayout quickTaskBox, @NonNull RecyclerView quickTaskRecycler,
+      @NonNull TextView quickText, @NonNull RecyclerView recyclerHome,
       @NonNull RecyclerView recyclerHome2, @NonNull FloatingActionButton repeatIcon,
       @NonNull FrameLayout repeatTaskBox, @NonNull RecyclerView repeatTaskRecycler,
-      @NonNull TextView tasksDone, @NonNull TextView tasksDonePercentage, @NonNull TextView text3,
-      @NonNull TextView text4, @NonNull TextView today, @NonNull FrameLayout todaySet,
-      @NonNull View verticalRow) {
+      @NonNull Button saveQuickTask, @NonNull TextView tasksDone,
+      @NonNull TextView tasksDonePercentage, @NonNull TextView text3, @NonNull TextView text4,
+      @NonNull TextView today, @NonNull FrameLayout todaySet, @NonNull View verticalRow) {
     this.rootView = rootView;
     this.createIcon = createIcon;
     this.delete = delete;
@@ -104,11 +123,16 @@ public final class FragmentHomeBinding implements ViewBinding {
     this.noSchedule = noSchedule;
     this.progress = progress;
     this.progressBar = progressBar;
+    this.quickTask = quickTask;
+    this.quickTaskBox = quickTaskBox;
+    this.quickTaskRecycler = quickTaskRecycler;
+    this.quickText = quickText;
     this.recyclerHome = recyclerHome;
     this.recyclerHome2 = recyclerHome2;
     this.repeatIcon = repeatIcon;
     this.repeatTaskBox = repeatTaskBox;
     this.repeatTaskRecycler = repeatTaskRecycler;
+    this.saveQuickTask = saveQuickTask;
     this.tasksDone = tasksDone;
     this.tasksDonePercentage = tasksDonePercentage;
     this.text3 = text3;
@@ -193,6 +217,30 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.quick_task;
+      EditText quickTask = ViewBindings.findChildViewById(rootView, id);
+      if (quickTask == null) {
+        break missingId;
+      }
+
+      id = R.id.quick_task_box;
+      FrameLayout quickTaskBox = ViewBindings.findChildViewById(rootView, id);
+      if (quickTaskBox == null) {
+        break missingId;
+      }
+
+      id = R.id.quick_task_recycler;
+      RecyclerView quickTaskRecycler = ViewBindings.findChildViewById(rootView, id);
+      if (quickTaskRecycler == null) {
+        break missingId;
+      }
+
+      id = R.id.quick_text;
+      TextView quickText = ViewBindings.findChildViewById(rootView, id);
+      if (quickText == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerHome;
       RecyclerView recyclerHome = ViewBindings.findChildViewById(rootView, id);
       if (recyclerHome == null) {
@@ -220,6 +268,12 @@ public final class FragmentHomeBinding implements ViewBinding {
       id = R.id.repeat_task_recycler;
       RecyclerView repeatTaskRecycler = ViewBindings.findChildViewById(rootView, id);
       if (repeatTaskRecycler == null) {
+        break missingId;
+      }
+
+      id = R.id.save_quick_task;
+      Button saveQuickTask = ViewBindings.findChildViewById(rootView, id);
+      if (saveQuickTask == null) {
         break missingId;
       }
 
@@ -266,9 +320,10 @@ public final class FragmentHomeBinding implements ViewBinding {
       }
 
       return new FragmentHomeBinding((RelativeLayout) rootView, createIcon, delete, edit,
-          editSchedule, nestedScrollView, noSchedule, progress, progressBar, recyclerHome,
-          recyclerHome2, repeatIcon, repeatTaskBox, repeatTaskRecycler, tasksDone,
-          tasksDonePercentage, text3, text4, today, todaySet, verticalRow);
+          editSchedule, nestedScrollView, noSchedule, progress, progressBar, quickTask,
+          quickTaskBox, quickTaskRecycler, quickText, recyclerHome, recyclerHome2, repeatIcon,
+          repeatTaskBox, repeatTaskRecycler, saveQuickTask, tasksDone, tasksDonePercentage, text3,
+          text4, today, todaySet, verticalRow);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

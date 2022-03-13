@@ -48,7 +48,26 @@ class MainActivity : AppCompatActivity() {
         analytics = Firebase.analytics
 
         setUpToolbar()
-        openHome()
+
+        val f = intent.getIntExtra("fragment",0)
+        intent.putExtra("fragment",0)
+        when(f){
+            0 -> {
+                openHome()
+            }
+            1 -> {
+                supportFragmentManager.beginTransaction()
+                .replace(R.id.frame, NotesFragment()).commit()
+                supportActionBar?.title = "Notes"
+                drawerLayout.closeDrawers()
+            }
+            2 -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frame, PastScheduleFragment()).commit()
+                supportActionBar?.title = "Past Schedules"
+                drawerLayout.closeDrawers()
+            }
+        }
 
         val actionBarDrawerToggle = ActionBarDrawerToggle(
             this@MainActivity, drawerLayout,
@@ -90,34 +109,13 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.shareApp -> {
-                    val delete = androidx.appcompat.app.AlertDialog.Builder(this)
-                    delete.setTitle("Share App")
-                    delete.setMessage("How do you want to share the app?")
-                    delete.setPositiveButton("Link") { text, listener ->
-                        try{
-                            val intent = Intent(Intent.ACTION_SEND)
-                            intent.setType("text/plain")
-                            intent.putExtra(Intent.EXTRA_SUBJECT, "Schedule your all tasks with this amazing app")
-                            intent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "\n\n")
-                            startActivity(Intent.createChooser(intent,"Share With"))
-                        }catch (e: Exception){}
-                    }
-                    delete.setNegativeButton("APK") { text, listener ->
-                        try {
-                            val api = applicationContext.applicationInfo
-                            val apkPath = api.sourceDir
-                            val intent = Intent(Intent.ACTION_SEND)
-                            intent.type = "application/vnd.android.package-archive"
-                            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(File(apkPath)))
-                            intent.putExtra(
-                                Intent.EXTRA_TEXT,
-                                "Schedule your all tasks with this amazing app"
-                            )
-                            startActivity(Intent.createChooser(intent, "Share With"))
-                        }catch (e: Exception){}
-                    }
-                    delete.create()
-                    delete.show()
+                    try{
+                        val intent = Intent(Intent.ACTION_SEND)
+                        intent.setType("text/plain")
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "Schedule your all tasks with this amazing app")
+                        intent.putExtra(Intent.EXTRA_TEXT, "Download Schedule Planner App \n\nPlan your all schedules and to do list with this fully loaded tool with reminder\n\nhttps://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID)
+                        startActivity(Intent.createChooser(intent,"Share With"))
+                    }catch (e: Exception){}
                 }
                 R.id.giveRating -> {
                     try{

@@ -4,7 +4,7 @@
     name=":app"
     type="APP"
     maven="Schedule Planner:app:"
-    gradle="7.1.1"
+    gradle="7.1.2"
     buildFolder="build"
     bootClassPath="C:\Users\anand\AppData\Local\Android\Sdk\platforms\android-31\android.jar;C:\Users\anand\AppData\Local\Android\Sdk\build-tools\30.0.3\core-lambda-stubs.jar"
     javaSourceLevel="1.8"

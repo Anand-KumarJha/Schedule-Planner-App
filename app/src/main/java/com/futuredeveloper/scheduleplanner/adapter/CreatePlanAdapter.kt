@@ -149,13 +149,14 @@ class CreatePlanAdapter(val context: Context, private val itemList: List<TaskEnt
         var count = 0
         for(i in itemList[position].task_id){
             if(count >= 2){
+                if(i == ',')break
                 sb.append(i)
             }
             if(i == ',')count++
         }
         val alarmNo = Integer.parseInt(sb.toString())
 
-        val alarmService = AlarmService(context as Activity, alarmNo, "")
+        val alarmService = AlarmService(context as Activity, alarmNo, "",0)
         println("Canceled alarm ----------------$alarmNo")
         cancelAlarm{alarmService.cancelAlarm(timeInMillis)}
 
@@ -170,21 +171,6 @@ class CreatePlanAdapter(val context: Context, private val itemList: List<TaskEnt
 
     private fun cancelAlarm(callback: (Long) -> Unit){
         callback(timeInMillis)
-    }
-
-    private fun getMonthFormat(month: Int): String {
-        if (month == 1) return "JAN"
-        if (month == 2) return "FEB"
-        if (month == 3) return "MAR"
-        if (month == 4) return "APR"
-        if (month == 5) return "MAY"
-        if (month == 6) return "JUN"
-        if (month == 7) return "JUL"
-        if (month == 8) return "AUG"
-        if (month == 9) return "SEP"
-        if (month == 10) return "OCT"
-        if (month == 11) return "NOV"
-        return if (month == 12) "DEC" else "JAN"
     }
 
     class DBAsyncTask2(val context: Context, val id: String) :

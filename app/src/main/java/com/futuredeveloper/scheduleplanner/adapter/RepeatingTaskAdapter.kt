@@ -40,81 +40,113 @@ class RepeatingTaskAdapter(val context: Context, private val itemList: List<Task
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RepeatTaskViewHolder, position: Int) {
+        if(itemList[position].task_id.get(0) == 'Q'){
+            holder.deleteButton.visibility = View.VISIBLE
+            holder.editButton.visibility = View.GONE
+            holder.taskDone.visibility = View.GONE
+            holder.deleteButton.setImageResource(R.drawable.actionbar_delete_task)
 
-        var count = 0
-        var start = 0
-        val sb = StringBuilder()
-        for(i in (itemList[position].task_id)){
-            if(i == ','){
-                count++
+            holder.deleteButton.setOnClickListener {
+                val logout = androidx.appcompat.app.AlertDialog.Builder(it.context)
+                logout.setTitle("Delete Task")
+                logout.setMessage("Do you want to delete selected task?")
+                logout.setPositiveButton("Yes") { text, listener ->
+                    DBAsyncTask2(
+                        context,
+                        itemList[position].task_id
+                    ).execute()
+
+                    (context as Activity?)?.recreate()
+                    Toast.makeText(context,"Task Deleted", Toast.LENGTH_SHORT).show()
+                }
+                logout.setNegativeButton("No") { text, listener ->
+
+                }
+                logout.create()
+                logout.show()
             }
-            if(count >= 2){
-                break
+
+            holder.count.text = (1 + position).toString()
+            holder.time.visibility = View.GONE
+            holder.title.text = itemList[position].taskDescription
+            holder.description.visibility = View.GONE
+        }else {
+            var count = 0
+            var start = 0
+            val sb = StringBuilder()
+            for (i in (itemList[position].task_id)) {
+                if (i == ',') {
+                    count++
+                }
+                if (count >= 2) {
+                    break
+                }
+                if (count == 1 && start > 0) {
+                    sb.append(i)
+                }
+                if (count == 1) {
+                    start++
+                }
             }
-            if(count == 1 && start > 0){
-                sb.append(i)
+
+            timeInMillis = (sb.toString()).toLong()
+            holder.deleteButton.visibility = View.VISIBLE
+            holder.taskDone.visibility = View.GONE
+            holder.editButton.visibility = View.VISIBLE
+            holder.deleteButton.setImageResource(R.drawable.actionbar_delete_task)
+
+//            holder.taskDone.setImageResource(R.drawable.actionbar_not_done_task)
+
+//            if (itemList[position].taskDone) {
+//                holder.taskDone.setImageResource(R.drawable.actionbar_done_task)
+//            }
+//
+//            holder.taskDone.setOnClickListener {
+//                val taskEntity = GetTaskByIds(context, itemList[position].task_id).execute().get()
+//
+//                if (taskEntity.taskDone) {
+//                    holder.taskDone.setImageResource(R.drawable.actionbar_not_done_task)
+//                    UpdateTaskById(context, itemList[position].task_id).execute()
+//                    Toast.makeText(it.context, "Task Not Completed", Toast.LENGTH_SHORT).show()
+//                } else {
+//                    holder.taskDone.setImageResource(R.drawable.actionbar_done_task)
+//                    UpdateTaskById(context, itemList[position].task_id).execute()
+//                    Toast.makeText(it.context, "Task Completed", Toast.LENGTH_SHORT).show()
+//                }
+//                (context as Activity).recreate()
+//            }
+            holder.editButton.setOnClickListener {
+                val intent = Intent(context, CreateTaskActivity::class.java).apply {
+                    putExtra("repeat", true)
+                    putExtra("taskId", itemList[position].task_id)
+                    putExtra("taskTime", itemList[position].taskTime)
+                    putExtra("taskTitle", itemList[position].taskTitle)
+                    putExtra("taskDescription", itemList[position].taskDescription)
+                }
+
+                (context as Activity).startActivity(intent)
+                context.overridePendingTransition(R.anim.pull_up_from_bottom, 0)
+                context.finish()
             }
-            if(count == 1){
-                start++
+            holder.deleteButton.setOnClickListener {
+                val logout = androidx.appcompat.app.AlertDialog.Builder(it.context)
+                logout.setTitle("Delete Task")
+                logout.setMessage("Do you want to delete selected task?")
+                logout.setPositiveButton("Yes") { text, listener ->
+                    delete(position)
+                }
+                logout.setNegativeButton("No") { text, listener ->
+
+                }
+                logout.create()
+                logout.show()
             }
+
+            holder.count.text = (1 + position).toString()
+            holder.time.text = itemList[position].taskTime
+            holder.title.text = itemList[position].taskTitle
+            holder.description.text = itemList[position].taskDescription
         }
-
-        timeInMillis = (sb.toString()).toLong()
-        holder.deleteButton.visibility = View.VISIBLE
-        holder.taskDone.visibility = View.VISIBLE
-        holder.editButton.visibility = View.VISIBLE
-        holder.taskDone.setImageResource(R.drawable.actionbar_not_done_task)
-        holder.deleteButton.setImageResource(R.drawable.actionbar_delete_task)
-
-        if(itemList[position].taskDone){
-            holder.taskDone.setImageResource(R.drawable.actionbar_done_task)
-        }
-
-        holder.taskDone.setOnClickListener{
-            val taskEntity= GetTaskByIds(context,itemList[position].task_id).execute().get()
-
-            if(taskEntity.taskDone){
-                holder.taskDone.setImageResource(R.drawable.actionbar_not_done_task)
-                UpdateTaskById(context,itemList[position].task_id).execute()
-                Toast.makeText(it.context,"Task Not Completed", Toast.LENGTH_SHORT).show()
-            }else{
-                holder.taskDone.setImageResource(R.drawable.actionbar_done_task)
-                UpdateTaskById(context,itemList[position].task_id).execute()
-                Toast.makeText(it.context,"Task Completed", Toast.LENGTH_SHORT).show()
-            }
-            (context as Activity).recreate()
-        }
-        holder.editButton.setOnClickListener {
-            val intent = Intent(context, CreateTaskActivity::class.java).apply {
-                putExtra("repeat",true)
-                putExtra("taskId",itemList[position].task_id)
-                putExtra("taskTime",itemList[position].taskTime)
-                putExtra("taskTitle",itemList[position].taskTitle)
-                putExtra("taskDescription",itemList[position].taskDescription)
-            }
-
-            (context as Activity).startActivity(intent)
-            context.overridePendingTransition(R.anim.pull_up_from_bottom,0)
-            context.finish()
-        }
-        holder.deleteButton.setOnClickListener {
-            val logout = androidx.appcompat.app.AlertDialog.Builder(it.context)
-            logout.setTitle("Delete Task")
-            logout.setMessage("Do you want to delete selected task?")
-            logout.setPositiveButton("Yes") { text, listener ->
-                delete(position)
-            }
-            logout.setNegativeButton("No") { text, listener ->
-
-            }
-            logout.create()
-            logout.show()
-        }
-
-        holder.count.text = (1+position).toString()
-        holder.time.text = itemList[position].taskTime
-        holder.title.text = itemList[position].taskTitle
-        holder.description.text = itemList[position].taskDescription
     }
 
     override fun getItemCount(): Int {
@@ -126,13 +158,14 @@ class RepeatingTaskAdapter(val context: Context, private val itemList: List<Task
         var count = 0
         for(i in itemList[position].task_id){
             if(count >= 2){
+                if(i == ',')break
                 sb.append(i)
             }
             if(i == ',')count++
         }
         val alarmNo = Integer.parseInt(sb.toString())
 
-        val alarmService = AlarmService(context as Activity, alarmNo, "")
+        val alarmService = AlarmService(context as Activity, alarmNo, "",0)
         println("Canceled alarm ----------------$alarmNo")
 
         cancelAlarm{alarmService.cancelRepeatAlarm(timeInMillis)}

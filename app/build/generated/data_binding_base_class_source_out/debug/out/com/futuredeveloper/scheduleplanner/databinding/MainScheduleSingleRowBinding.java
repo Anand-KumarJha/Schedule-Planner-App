@@ -4,6 +4,7 @@ package com.futuredeveloper.scheduleplanner.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -29,6 +30,9 @@ public final class MainScheduleSingleRowBinding implements ViewBinding {
   public final RelativeLayout mainScheduleScheduleRow;
 
   @NonNull
+  public final FrameLayout repeatTaskBox;
+
+  @NonNull
   public final TextView rowCount;
 
   @NonNull
@@ -36,12 +40,13 @@ public final class MainScheduleSingleRowBinding implements ViewBinding {
 
   private MainScheduleSingleRowBinding(@NonNull RelativeLayout rootView,
       @NonNull TextView itemDescription, @NonNull TextView itemName,
-      @NonNull RelativeLayout mainScheduleScheduleRow, @NonNull TextView rowCount,
-      @NonNull TextView taskTime) {
+      @NonNull RelativeLayout mainScheduleScheduleRow, @NonNull FrameLayout repeatTaskBox,
+      @NonNull TextView rowCount, @NonNull TextView taskTime) {
     this.rootView = rootView;
     this.itemDescription = itemDescription;
     this.itemName = itemName;
     this.mainScheduleScheduleRow = mainScheduleScheduleRow;
+    this.repeatTaskBox = repeatTaskBox;
     this.rowCount = rowCount;
     this.taskTime = taskTime;
   }
@@ -87,6 +92,12 @@ public final class MainScheduleSingleRowBinding implements ViewBinding {
 
       RelativeLayout mainScheduleScheduleRow = (RelativeLayout) rootView;
 
+      id = R.id.repeat_task_box;
+      FrameLayout repeatTaskBox = ViewBindings.findChildViewById(rootView, id);
+      if (repeatTaskBox == null) {
+        break missingId;
+      }
+
       id = R.id.rowCount;
       TextView rowCount = ViewBindings.findChildViewById(rootView, id);
       if (rowCount == null) {
@@ -100,7 +111,7 @@ public final class MainScheduleSingleRowBinding implements ViewBinding {
       }
 
       return new MainScheduleSingleRowBinding((RelativeLayout) rootView, itemDescription, itemName,
-          mainScheduleScheduleRow, rowCount, taskTime);
+          mainScheduleScheduleRow, repeatTaskBox, rowCount, taskTime);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

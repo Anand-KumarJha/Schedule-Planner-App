@@ -74,7 +74,15 @@ private val itemList: List<ScheduleEntity>
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                (context as Activity).recreate()
+                val intent = android.content.Intent(
+                    context,
+                    com.futuredeveloper.scheduleplanner.activity.MainActivity::class.java
+                )
+                intent.putExtra("fragment",1)
+                context.startActivity(intent)
+                (context as Activity).overridePendingTransition(0,0)
+                context.finish()
+
             }
             delete.setNegativeButton("No") { text, listener ->
 

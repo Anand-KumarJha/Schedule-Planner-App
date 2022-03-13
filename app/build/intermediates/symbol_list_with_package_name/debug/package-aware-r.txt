@@ -2489,6 +2489,8 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable actionbar_alarm
+drawable actionbar_alarm_icon
 drawable actionbar_create_icon
 drawable actionbar_create_task
 drawable actionbar_delete_task
@@ -2499,13 +2501,18 @@ drawable actionbar_edit_white
 drawable actionbar_give_rating
 drawable actionbar_home
 drawable actionbar_how_to_use
+drawable actionbar_loud_notification
 drawable actionbar_not_done_task
 drawable actionbar_notes
+drawable actionbar_notification
+drawable actionbar_notification_off
 drawable actionbar_past_schedules
 drawable actionbar_repeat_task
 drawable actionbar_save_task
 drawable actionbar_save_task1
 drawable actionbar_share_app
+drawable admob_close_button_black_circle_white_cross
+drawable admob_close_button_white_circle_black_cross
 drawable avd_hide_password
 drawable avd_show_password
 drawable ayp_background_item_selected
@@ -2610,6 +2617,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable quick_task_shape
+drawable single_row_shape
 drawable small_logo
 drawable test_custom_background
 drawable test_level_drawable
@@ -2690,6 +2699,8 @@ id activity_chooser_view_content
 id add
 id adjust_height
 id adjust_width
+id alarm
+id alarmIcon
 id alertTitle
 id aligned
 id all
@@ -3000,6 +3011,7 @@ id none
 id normal
 id north
 id notes
+id notification
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -3030,6 +3042,10 @@ id progress
 id progress_bar
 id progress_circular
 id progress_horizontal
+id quick_task
+id quick_task_box
+id quick_task_recycler
+id quick_text
 id radio
 id ratio
 id rectangles
@@ -3052,6 +3068,7 @@ id row_index_key
 id save_icon
 id save_non_transition_alpha
 id save_overlay_view
+id save_quick_task
 id sawtooth
 id scale
 id schedule_date
@@ -3415,6 +3432,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu alarm_menu
 menu example_menu
 menu example_menu2
 menu how_to_use
@@ -3424,6 +3442,7 @@ mipmap ic_launcher_background
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+raw alarm
 raw ayp_youtube_player
 raw notify
 string _01_jan_2022
@@ -3486,6 +3505,7 @@ string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
 string close_drawer
+string com_crashlytics_android_build_id
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -3525,6 +3545,7 @@ string faqAnswer1
 string faqAnswer2
 string faqAnswer3
 string faq_s_frequently_asked_questions
+string fcm_fallback_notification_channel_label
 string features_38_how_to_use
 string forgot_password
 string gcm_defaultSenderId

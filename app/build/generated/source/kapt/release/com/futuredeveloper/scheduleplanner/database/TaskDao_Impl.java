@@ -433,6 +433,59 @@ public final class TaskDao_Impl implements TaskDao {
     }
   }
 
+  @Override
+  public List<TaskEntity> getAllQuickTasks() {
+    final String _sql = "SELECT * FROM task WHERE task_id LIKE 'Q' || '%' ORDER BY task_id DESC";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+    try {
+      final int _cursorIndexOfTaskId = CursorUtil.getColumnIndexOrThrow(_cursor, "task_id");
+      final int _cursorIndexOfTaskTime = CursorUtil.getColumnIndexOrThrow(_cursor, "task_time");
+      final int _cursorIndexOfTaskTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "task_title");
+      final int _cursorIndexOfTaskDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "task_description");
+      final int _cursorIndexOfTaskDone = CursorUtil.getColumnIndexOrThrow(_cursor, "task_done");
+      final List<TaskEntity> _result = new ArrayList<TaskEntity>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final TaskEntity _item;
+        final String _tmpTask_id;
+        if (_cursor.isNull(_cursorIndexOfTaskId)) {
+          _tmpTask_id = null;
+        } else {
+          _tmpTask_id = _cursor.getString(_cursorIndexOfTaskId);
+        }
+        final String _tmpTaskTime;
+        if (_cursor.isNull(_cursorIndexOfTaskTime)) {
+          _tmpTaskTime = null;
+        } else {
+          _tmpTaskTime = _cursor.getString(_cursorIndexOfTaskTime);
+        }
+        final String _tmpTaskTitle;
+        if (_cursor.isNull(_cursorIndexOfTaskTitle)) {
+          _tmpTaskTitle = null;
+        } else {
+          _tmpTaskTitle = _cursor.getString(_cursorIndexOfTaskTitle);
+        }
+        final String _tmpTaskDescription;
+        if (_cursor.isNull(_cursorIndexOfTaskDescription)) {
+          _tmpTaskDescription = null;
+        } else {
+          _tmpTaskDescription = _cursor.getString(_cursorIndexOfTaskDescription);
+        }
+        final boolean _tmpTaskDone;
+        final int _tmp;
+        _tmp = _cursor.getInt(_cursorIndexOfTaskDone);
+        _tmpTaskDone = _tmp != 0;
+        _item = new TaskEntity(_tmpTask_id,_tmpTaskTime,_tmpTaskTitle,_tmpTaskDescription,_tmpTaskDone);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
+
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();
   }

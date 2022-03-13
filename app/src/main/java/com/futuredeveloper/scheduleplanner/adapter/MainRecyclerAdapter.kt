@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.futuredeveloper.scheduleplanner.R
 import com.futuredeveloper.scheduleplanner.classes.AlarmService
 import com.futuredeveloper.scheduleplanner.database.ScheduleEntity
 import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainRecyclerAdapter(
@@ -114,15 +116,15 @@ class MainRecyclerAdapter(
             var count = 0
             for(j in (i.task_id)){
                 if(count >= 2){
+                    if(j == ',')break
                     sb1.append(j)
                 }
                 if(j == ',')count++
             }
             val alarmNo = Integer.parseInt(sb1.toString())
 
-            val alarmService = AlarmService(context as Activity, alarmNo, "")
+            val alarmService = AlarmService(context as Activity, alarmNo, "",0)
             println("Canceled alarm ----------------$alarmNo")
-
             cancelAlarm{alarmService.cancelAlarm(timeInMillis)}
         }
         delete(itemList[position].scheduleDate)
@@ -141,7 +143,19 @@ class MainRecyclerAdapter(
             scheduleDate
         ).execute()
 
-        (context as Activity?)?.recreate()
+        val intent = android.content.Intent(
+            context,
+            com.futuredeveloper.scheduleplanner.activity.MainActivity::class.java
+        )
+        if(makeDate(scheduleDate) < makeDate(getTodaysDate())) {
+            intent.putExtra("fragment", 2)
+        }else{
+            intent.putExtra("fragment", 0)
+        }
+        context.startActivity(intent)
+        (context as Activity).overridePendingTransition(0,0)
+        context.finish()
+
         Toast.makeText(context,"Schedule Deleted", Toast.LENGTH_SHORT).show()
     }
 
@@ -149,6 +163,31 @@ class MainRecyclerAdapter(
         return itemList.size
     }
 
+    private fun getTodaysDate(): String {
+        val cal = Calendar.getInstance()
+        val year = cal[Calendar.YEAR]
+        var month = cal[Calendar.MONTH]
+        month += 1
+        val day = cal[Calendar.DAY_OF_MONTH]
+        return makeDateString(day, month, year)
+    }
+    private fun makeDateString(day: Int, month: Int, year: Int): String {
+        return day.toString() + " " + getMonthFormat(month) + " " + year
+    }
+    private fun getMonthFormat(month: Int): String {
+        if (month == 1) return "JAN"
+        if (month == 2) return "FEB"
+        if (month == 3) return "MAR"
+        if (month == 4) return "APR"
+        if (month == 5) return "MAY"
+        if (month == 6) return "JUN"
+        if (month == 7) return "JUL"
+        if (month == 8) return "AUG"
+        if (month == 9) return "SEP"
+        if (month == 10) return "OCT"
+        if (month == 11) return "NOV"
+        return if (month == 12) "DEC" else "JAN"
+    }
     //For date sorting
     private var date1 = StringBuilder()
     private fun makeDate(scheduleDate: String): String{

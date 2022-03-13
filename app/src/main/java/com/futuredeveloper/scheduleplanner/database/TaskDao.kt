@@ -28,6 +28,9 @@ interface TaskDao {
         @Query("SELECT * FROM task WHERE task_id LIKE 'R' || '%' ORDER BY task_id ASC")
         fun getAllRepeatTasks(): List<TaskEntity>
 
+        @Query("SELECT * FROM task WHERE task_id LIKE 'Q' || '%' ORDER BY task_id DESC")
+        fun getAllQuickTasks(): List<TaskEntity>
+
         @Query("DELETE FROM task WHERE task_id LIKE :taskDate || '%'")
         fun clearTask(taskDate: String)
 }

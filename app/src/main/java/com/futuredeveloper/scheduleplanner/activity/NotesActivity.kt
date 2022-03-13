@@ -14,6 +14,7 @@ class NotesActivity : AppCompatActivity() {
     private lateinit var dateTextView: TextView
     private lateinit var description: EditText
     private lateinit var saveIcon: FloatingActionButton
+    private lateinit var notesDescription: String
     private var scheduleTitle = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +22,7 @@ class NotesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_notes)
 
         date = intent.getStringExtra("date").toString()
-        val notesDescription = intent.getStringExtra("notesDescription").toString()
+        notesDescription = intent.getStringExtra("notesDescription").toString()
         scheduleTitle = intent.getStringExtra("title").toString()
 
         dateTextView = findViewById(R.id.date)
@@ -32,7 +33,14 @@ class NotesActivity : AppCompatActivity() {
         description.setText(notesDescription)
 
         saveIcon.setOnClickListener {
-            onBackPressed()
+            val intent = Intent(this, CreatePlanActivity::class.java)
+            intent.putExtra("date",date)
+            intent.putExtra("notesDescription",description.text.toString())
+            intent.putExtra("title", scheduleTitle)
+            startActivity(intent)
+            overridePendingTransition(R.anim.pull_up_from_top,R.anim.push_out_to_bottom)
+            Toast.makeText(this, "Notes Added, Save Schedule to Save Notes", Toast.LENGTH_LONG).show()
+            finish()
         }
 
     }
@@ -40,11 +48,13 @@ class NotesActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val intent = Intent(this, CreatePlanActivity::class.java)
         intent.putExtra("date",date)
-        intent.putExtra("notesDescription",description.text.toString())
+        intent.putExtra("notesDescription",notesDescription)
+        if(intent.getStringExtra("notesDescription") == null){
+            intent.putExtra("notesDescription","")
+        }
         intent.putExtra("title", scheduleTitle)
         startActivity(intent)
         overridePendingTransition(R.anim.pull_up_from_top,R.anim.push_out_to_bottom)
-        Toast.makeText(this, "Notes Added, Save Schedule to Save Notes", Toast.LENGTH_LONG).show()
         finish()
     }
 }

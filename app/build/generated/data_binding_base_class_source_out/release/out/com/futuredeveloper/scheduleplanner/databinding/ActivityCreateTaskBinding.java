@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -21,6 +22,9 @@ import java.lang.String;
 public final class ActivityCreateTaskBinding implements ViewBinding {
   @NonNull
   private final RelativeLayout rootView;
+
+  @NonNull
+  public final ImageView alarmIcon;
 
   @NonNull
   public final EditText description;
@@ -40,10 +44,12 @@ public final class ActivityCreateTaskBinding implements ViewBinding {
   @NonNull
   public final EditText title;
 
-  private ActivityCreateTaskBinding(@NonNull RelativeLayout rootView, @NonNull EditText description,
-      @NonNull View horizontalRow, @NonNull FloatingActionButton saveIcon,
-      @NonNull TextView taskText, @NonNull Button timeButton, @NonNull EditText title) {
+  private ActivityCreateTaskBinding(@NonNull RelativeLayout rootView, @NonNull ImageView alarmIcon,
+      @NonNull EditText description, @NonNull View horizontalRow,
+      @NonNull FloatingActionButton saveIcon, @NonNull TextView taskText,
+      @NonNull Button timeButton, @NonNull EditText title) {
     this.rootView = rootView;
+    this.alarmIcon = alarmIcon;
     this.description = description;
     this.horizontalRow = horizontalRow;
     this.saveIcon = saveIcon;
@@ -79,6 +85,12 @@ public final class ActivityCreateTaskBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.alarmIcon;
+      ImageView alarmIcon = ViewBindings.findChildViewById(rootView, id);
+      if (alarmIcon == null) {
+        break missingId;
+      }
+
       id = R.id.description;
       EditText description = ViewBindings.findChildViewById(rootView, id);
       if (description == null) {
@@ -115,8 +127,8 @@ public final class ActivityCreateTaskBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityCreateTaskBinding((RelativeLayout) rootView, description, horizontalRow,
-          saveIcon, taskText, timeButton, title);
+      return new ActivityCreateTaskBinding((RelativeLayout) rootView, alarmIcon, description,
+          horizontalRow, saveIcon, taskText, timeButton, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

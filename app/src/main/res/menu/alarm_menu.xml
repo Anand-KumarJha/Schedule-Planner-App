@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/off"
+        android:icon="@drawable/actionbar_notification_off"
+        android:title="Off"/>
+
+    <item
+        android:id="@+id/notification"
+        android:icon="@drawable/actionbar_notification"
+        android:title="Notification">
+    </item>
+
+    <item
+        android:id="@+id/alarm"
+        android:icon="@drawable/actionbar_loud_notification"
+        android:title="Loud Notification">
+    </item>
+
+
+</menu>
