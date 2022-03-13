@@ -26,10 +26,10 @@ Features-
 * Tasks With Specific Day and Time
 * Repeating Tasks
 * Precise Reminder with Task & Description
+* Instant Quick Task
 * Schedules By Date
 * Past Schedules
 * Daily Notes
-* Multiple Tasks At Same Time And Date
 * Simple and fast 
 
 In Schedule Planner app we have provided an amazing dashboard for 
